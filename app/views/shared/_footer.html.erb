@@ -1,0 +1,30 @@
+<div class="footer">
+  <div class="flexend">
+    <div class="button-icon">
+      <%= link_to gyms_path do %>
+        <i class="fas fa-users"></i>
+      <% end %>
+    </div>
+    <div class="button-icon">
+      <%= link_to dashboard_bookings_path do %>
+        <i class="fas fa-calendar-check"></i>
+        <% end %>
+    </div>
+    <div class="button-icon">
+      <%= link_to dashboard_path do %>
+        <% if current_user.present? && current_user.photo.blank? %>
+          <i class="fas fa-user"></i>
+        <% elsif current_user.present? %>
+          <%= cl_image_tag(current_user.photo, crop: :thumb, gravity: :face, class:"footer-avatar") %>
+        <% else %>
+          <i class="fas fa-user"></i>
+        <% end %>
+      <% end %>
+    </div>
+    <div class="button-icon">
+      <%= link_to dashboard_chat_rooms_path do %>
+        <i class="fas fa-comments"></i>
+      <% end %>
+    </div>
+  </div>
+</div>

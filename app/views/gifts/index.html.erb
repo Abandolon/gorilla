@@ -1,0 +1,31 @@
+<div class="container">
+  <h3 class="header-styles">Choose a Reward</h3>
+
+  <div class="gift-table">
+    <%= form_tag(gift_update_path(current_user), method: :PATCH) do %>
+    <% @gifts.each do |gift| %>
+    <label>
+      <div id="margin-gift-list" class="card-product">
+        <%= cl_image_tag(gift.photo, crop: :thumb, gravity: :face) %>
+        <div class="card-product-infos check-this">
+          <div class="gift-name">
+            <h2><%= gift.name %></h2>
+          </div>
+          <div class="gift-price-time">
+            <p><%= gift.price %>€</p>
+            <p>=</p>
+            <p><%= gift.time %></p>
+          </div>
+        </div>
+      </div>
+      <%= check_box_tag('gifts[]', gift.id, checked = false, hidden: true) %>
+    </label>
+    <% end %>
+    <div class=" submit-button">
+      <%= submit_tag "Select Your Gift", class: "btn book" %>
+    </div>
+    <% end %>
+  </div>
+</div>
+
+

@@ -1,0 +1,87 @@
+<div class="containers-bookings">
+  <% @bookings.each do |booking| %>
+  <% if booking.status == "pending" %>
+  <div class="card-booking" style="border-right: 10px solid orange;">
+    <%= link_to user_path(booking.veteran_id) do %>
+    <%= cl_image_tag(booking.veteran.photo, crop: :thumb, gravity: :face) %>
+    <% end %>
+    <div class="card-product-infos">
+      <div id="booking-card">
+        <h2><%= booking.veteran.name %></h2>
+        <p><strong><%= booking.gym.name[0..18] %></strong></p>
+        <p><em><%= booking.date.strftime('%b %e, %H:%M') %></em></p>
+      </div>
+      <div class="booking-vet-style">
+        <div id="booking-card-right">
+          <div class="content-card-right" style="display: flex; align-items: center;justify-content: space-around">
+            <% booking.veteran.styles.each do |style| %>
+            <div><%= cl_image_tag(style.photo, class: "booking-img") %></div>
+            <% end %>
+          </div>
+          <div class="content-card-right" style="display: flex; align-items: center;justify-content: space-around"><%= link_to booking_path(booking.id), method: :delete, class: "Cancel-link" do%>
+            <p>Cancel</p>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <% elsif (booking.status == "accepted") %>
+  <div class="card-booking" style="border-right: 10px solid #30db8b;">
+    <%= link_to user_path(booking.veteran_id) do %>
+    <%= cl_image_tag(booking.veteran.photo, crop: :thumb, gravity: :face) %>
+    <% end %>
+    <div class="card-product-infos">
+      <div id="booking-card">
+        <h2><%= booking.veteran.name %></h2>
+        <p><strong><%= booking.gym.name[0..18] %></strong></p>
+        <p><em><%= booking.date.strftime('%b %e, %H:%M') %></em></p>
+      </div>
+      <div class="booking-vet-style">
+        <div id="booking-card-right">
+          <div class="content-card-right" style="display: flex; align-items: center;justify-content: space-around">
+            <% booking.veteran.styles.each do |style| %>
+            <div><%= cl_image_tag(style.photo, class: "booking-img") %></div>
+            <% end %>
+          </div>
+          <div class="content-card-right" style="display: flex; align-items: center;justify-content: space-around">
+            <% if booking.chat_room_id.present? %>
+              <%= link_to chat_room_path(booking.chat_room_id), class: "Chat-link" do %>
+              <p>Chat</p>
+              <% end %>
+             <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <% elsif (booking.status == "declined") %>
+   <div class="card-booking" style="border-right: 10px solid #E71D36;">
+    <%= link_to user_path(booking.veteran_id) do %>
+    <%= cl_image_tag(booking.veteran.photo, crop: :thumb, gravity: :face) %>
+    <% end %>
+    <div class="card-product-infos">
+      <div id="booking-card">
+        <h2><%= booking.veteran.name %></h2>
+        <p><strong><%= booking.gym.name[0..18] %></strong></p>
+        <p><em><%= booking.date.strftime('%b %e, %H:%M') %></em></p>
+      </div>
+      <div class="booking-vet-style">
+        <div id="booking-card-right">
+          <div class="content-card-right" style="display: flex; align-items: center;justify-content: space-around">
+            <% booking.veteran.styles.each do |style| %>
+            <div><%= cl_image_tag(style.photo, class: "booking-img") %></div>
+            <% end %>
+          </div>
+          <div class="content-card-right" style="display: flex; align-items: center;justify-content: space-around">
+            <%= link_to booking_path(booking.id), method: :delete, class: "Cancel-link" do%>
+              <p>Delete</p>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+ <% end %>
+ <% end %>
+</div>

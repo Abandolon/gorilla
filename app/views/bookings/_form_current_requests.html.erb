@@ -1,0 +1,59 @@
+<div class="containers-bookings">
+  <% @requests.each do |request| %>
+  <% if request.status == "pending"%>
+  <div class="card-booking" style="border-right: 10px solid orange;">
+    <%= link_to starter_path(request.starter_id) do %>
+    <%= cl_image_tag(request.starter.photo, crop: :thumb, gravity: :face) %>
+    <% end %>
+    <div class="card-product-infos">
+      <div id="booking-card">
+        <h2><%= request.starter.name %></h2>
+        <p><strong><%= request.gym.name[0..18] %></strong></p>
+        <p><em><%= request.date.strftime('%b %e, %H:%M') %></em></p>
+      </div>
+      <div class="booking-vet-style">
+        <div id="booking-card-right">
+          <div class="content-card-right" style="display: flex; align-items: center;justify-content: space-around">
+            <%= link_to "Accept", booking_path(request.id, value: "accepted"), method: :patch, class: "Chat-link" %>
+          </div>
+          <div class="content-card-right" style="display: flex; align-items: center;justify-content: space-around"><%= link_to "Decline", booking_path(request.id, value: "declined"), method: :patch,  class: "Cancel-link" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <% end %>
+  <% end %>
+  <% @requests.each do |request| %>
+  <% if request.status == "accepted"%>
+  <div class="card-booking" style="border-right: 10px solid #30db8b;">
+    <%= link_to starter_path(request.starter_id) do %>
+    <%= cl_image_tag(request.starter.photo, crop: :thumb, gravity: :face) %>
+    <% end %>
+    <div class="card-product-infos">
+      <div id="booking-card">
+        <h2><%= request.starter.name %></h2>
+        <p><strong><%= request.gym.name[0..18] %></strong></p>
+        <p><em><%= request.date.strftime('%b %e, %H:%M') %></em></p>
+      </div>
+      <div class="booking-vet-style">
+        <div id="booking-card-right">
+          <div class="content-card-right" style="display: flex; align-items: center;justify-content: space-around">
+            <% if (!request.chat_room_id.present?) %>
+            <%=form_tag booking_chat_rooms_path(request.id) do |f| %>
+            <%= hidden_field_tag "name", "chat" %>
+            <%= hidden_field_tag "veteran_id", request.veteran_id %>
+            <%= hidden_field_tag "starter_id", request.starter_id %>
+            <%= submit_tag "Chat", class: "Chat-link", style: "color: white; border: none;" %>
+            <% end %>
+            <% else %>
+            <%= link_to "Chat", chat_room_path(request.chat_room_id), class: "Chat-link"%>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <% end %>
+  <% end %>
+</div>

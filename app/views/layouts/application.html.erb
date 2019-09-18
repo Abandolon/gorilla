@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, shrink-to-fit=no">
+    <title>GO!Rilla - Find your next gym buddy</title>
+    <script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
+
+    <title><%= meta_title %></title>
+    <meta name="description" content="<%= meta_description %>">
+
+    <!-- Facebook Open Graph data -->
+    <meta property="og:title" content="<%= meta_title %>" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="<%= request.original_url %>" />
+    <meta property="og:image" content="<%= meta_image %>" />
+    <meta property="og:description" content="<%= meta_description %>" />
+    <meta property="og:site_name" content="<%= meta_title %>" />
+    <link rel="manifest" href="<%= asset_path 'manifest.json' %>">
+
+    <!-- Favicons -->
+
+    <%= csrf_meta_tags %>
+    <%= favicon_link_tag 'gorilla.png' %>
+    <%= action_cable_meta_tag %>
+    <%= stylesheet_link_tag 'application', media: 'all' %>
+    <%= stylesheet_pack_tag 'application', media: 'all' %>
+  </head>
+  <body>
+    <% unless controller_name == "sessions" || controller_name == "registrations"%>
+      <%= render 'shared/navbar' %>
+    <% end %>
+    <%= render 'shared/flashes' %>
+    <% unless controller_name == "sessions" || controller_name == "registrations"%>
+      <%= render 'shared/footer' %>
+    <% end %>
+    <%= yield %>
+    <%= javascript_include_tag 'application' %>
+    <%= javascript_pack_tag 'application' %>
+    <%= yield :after_js %>
+  </body>
+</html>

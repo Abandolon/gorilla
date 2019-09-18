@@ -1,0 +1,121 @@
+.header-gorilla {
+  margin-top: 6vh;
+  margin-bottom: 9vh;
+  margin: 100px;
+  font-size: 60px;
+}
+
+#gorilla-login-page-header {
+  transform: scale(0.8);
+}
+
+.margin-top-sign-in {
+  margin-top: 15px !important;
+}
+
+#margin-top-login {
+  margin-top: 20px;
+  margin-bottom: 25px;
+}
+
+.header-sign-up {
+  margin-bottom: 50px;
+  margin-top: 40px;
+}
+
+.form-group {
+  width: 85vw;
+}
+
+.devise {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.btn-login {
+  text-align: center;
+  margin: 35px;
+  color: white;
+}
+
+.btn-sign-up {
+  text-align: center;
+  margin: 25px;
+  color: white;
+  border: 2px solid white;
+  border-radius: 3px;
+  font-size: 20px;
+  width: 170px;
+}
+
+.login-fields {
+  .form-group {
+    margin-bottom: 0;
+    width: 300px;
+    height: 60px;
+
+    .form-control {
+      border: 0;
+    }
+    .email{
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+      height: 100%;
+      border-bottom: 0.5px solid black;
+    }
+    .password{
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+      height: 100%;
+    }
+  }
+}
+
+.log-in-btn{
+  border: white solid 0.5px;
+  margin: 50px 0;
+  border-radius: 5px;
+  input {color: white !important;}
+}
+
+#send_request {
+  margin: -10px 0;
+}
+
+.description-sign-up textarea {
+  height: 90px;
+}
+
+.photo-upload {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.password-sign-up {
+  margin-top: 40px;
+  margin-bottom: 0px;
+}
+
+.update-profile {
+  color: white;
+  width: 70vw;
+}
+
+.new_user {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.edit-user {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+}

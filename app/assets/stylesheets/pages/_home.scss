@@ -1,0 +1,47 @@
+// Specific CSS for your home-page
+
+body {
+  text-align: center;
+  padding-bottom: 60px;
+}
+
+.fill-screen {
+  height: 92vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.center-page {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.text-home-page {
+  margin-bottom: 100px;
+}
+
+#home-img {
+  padding: 20px;
+  border-radius: 50%;
+  border: #30db8b 4px solid;
+  animation-name: smash;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+  animation-duration: 2s;
+  animation-delay: 1s;
+  animation-timing-function: linear;
+}
+
+@keyframes smash {
+  25% { transform: scale(1.1) }
+  50% { transform: scale(1.0) }
+  75% { transform: scale(1.1) }
+  100% { transform: scale(1.0) }
+}
+
+#smash-it {
+  font-size: 25px;
+  margin-top: 20px;
+}

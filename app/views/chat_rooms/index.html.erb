@@ -1,0 +1,90 @@
+
+<div class="container">
+  <h3 id="index-header", style="text-align: center">Chats with your Veterans</h3>
+    <% @booking_vet_approved.each do |booking_chat| %>
+    <div class="card-product", style= "height: 95px; border: none; border-radius: 0px; margin: 0 !important">
+      <%= link_to chat_room_path(booking_chat.chat_room_id) do %>
+        <%= cl_image_tag(booking_chat.veteran.photo) %>
+          <div class="card-product-infos", style="color: black; justify-content: flex-start; margin: 0px 10px">
+            <div class="vet-name", style= "text-align: left">
+              <p style="font-size: 15px;"><strong><%= booking_chat.veteran.name %></strong></p>
+            </div>
+            <p style="font-size: 15px;">
+              <% last_message = @messages.where(chat_room_id: booking_chat.chat_room_id).last&.content %>
+              <em><%= last_message[0..15] unless last_message.nil? %>...</em>
+            </p>
+          <% end %>
+          </div>
+    </div>
+    <% end %>
+    <% @booking_starter.each do |booking_chat| %>
+    <div class="card-product", style= "height: 95px; border: none; border-radius: 0px; margin: 0 !important">
+      <%= link_to chat_room_path(booking_chat.chat_room_id) do %>
+        <%= cl_image_tag(booking_chat.veteran.photo) %>
+          <div class="card-product-infos", style="color: black; justify-content: flex-start; margin: 0px 10px">
+            <% if booking_chat.veteran.id == current_user.id %>
+              <div class="vet-name", style= "text-align: left">
+                <p style="font-size: 15px;"><strong><%= booking_chat.starter.name %></strong></p>
+              </div>
+              <% else %>
+              <div class="vet-name", style= "text-align: left">
+                <p style="font-size: 15px;"><strong><%= booking_chat.veteran.name %></strong></p>
+              </div>
+              <% end %>
+            <p style="font-size: 15px;">
+              <% last_message = @messages.where(chat_room_id: booking_chat.chat_room_id).last&.content %>
+              <em><%= last_message[0..15] unless last_message.nil? %>...</em>
+            </p>
+          <% end %>
+          </div>
+    </div>
+    <% end %>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- -->

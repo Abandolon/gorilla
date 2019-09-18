@@ -1,0 +1,15 @@
+.mapboxgl-popup {
+  max-width: 200px;
+}
+
+.mapboxgl-popup-content {
+  text-align: center;
+  font-family: $body-font;
+  background: #242a22 !important;
+  color: black !important;
+  border: 5px solid #30db8b !important;
+}
+
+.mapboxgl-marker {
+  border-radius: 5px;
+}

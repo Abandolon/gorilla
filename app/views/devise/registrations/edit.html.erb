@@ -1,0 +1,151 @@
+<div class="container devise">
+  <h2 style="margin-top: 60px; margin-bottom: 40px">Edit your profile</h2>
+
+  <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put}) do |f| %>
+    <%= f.error_notification %>
+
+    <div class="form-inputs edit-user">
+
+      <%= f.input :veteran,
+                  as: :radio_buttons,
+                  wrapper: :vertical_collection_inline,
+                  collection: [['find a buddy', false],['be a buddy', true,]],
+                  label: "" %>
+
+      <% if current_user.veteran %>
+
+        <div style="margin: 20px 20px; display:block" class="additional-veteran-info">
+          <h6 style="font-size: 20px; margin-bottom: 20px">Your gym</h6>
+          <%= f.input :gym_id,
+                      collection: Gym.all,
+                      required: true,
+                      label: false,
+                      prompt: "Choose your gym",
+                      input_html: { class: "dropdown-gym" } %>
+
+          <h6 style="font-size: 20px">Your styles</h6>
+          <div class="row justify-content-around">
+            <% Style.all.each do |style| %>
+              <label class="style-label style-checkbox col-6 col-offset-2">
+                <div>
+                  <%= cl_image_tag(style.photo) %>
+                  <p><%= style.name %></p>
+                </div>
+                <%= check_box_tag('styles[]', style.id, checked = false, hidden: true, class:"check-me") %>
+              </label>
+            <% end %>
+          </div>
+        </div>
+
+      <% else %>
+
+     <div style="margin: 20px 20px; display:none" class="additional-veteran-info">
+       <h6 style="font-size: 20px; margin-bottom: 20px">Your gym</h6>
+       <%= f.input :gym_id,
+                   collection: Gym.all,
+                   required: true,
+                   label: false,
+                   prompt: "Choose your gym",
+                   input_html: { class: "dropdown-gym" } %>
+
+       <h6 style="font-size: 20px">Your styles</h6>
+       <div class="row justify-content-around">
+         <% Style.all.each do |style| %>
+           <label class="style-label style-checkbox col-6 col-offset-2">
+             <div>
+               <%= cl_image_tag(style.photo) %>
+               <p><%= style.name %></p>
+             </div>
+             <%= check_box_tag('styles[]', style.id, checked = false, hidden: true, class:"check-me") %>
+           </label>
+         <% end %>
+       </div>
+     </div>
+
+      <% end %>
+
+      <div class="photo-upload">
+        <h6 style="font-size: 20px">Change your photo</h6>
+        <%= f.input :photo,
+                    as: :file,
+                    label: false,
+                    required: true%>
+        <%= f.input :photo_cache, as: :hidden %>
+      </div>
+      <div class="description-answers">
+        <h6 style="font-size: 20px">Choose what you feel like</h6>
+        <%= f.input :beach,
+                    as: :radio_buttons,
+                    wrapper: :vertical_collection_inline,
+                    collection: [['<p class="icons"><i class="fas fa-mountain"></i><span style="font-size: 10px">mountains</span></p>'.html_safe, false],['<p class="icons"><i class="fas fa-umbrella-beach"></i><span style="font-size: 10px">beach</span></p>'.html_safe, true]],
+                    label: ""%>
+        <%= f.input :summer,
+                    as: :radio_buttons,
+                    wrapper: :vertical_collection_inline,
+                    collection: [['<p class="icons"><i class="fas fa-snowflake"></i><span style="font-size: 10px">winter</span></p>'.html_safe, false],['<p class="icons"><i class="fas fa-sun"></i><span style="font-size: 10px">summer</span></p>'.html_safe, true]],
+                    label: ""%>
+        <%= f.input :book,
+                    as: :radio_buttons,
+                    wrapper: :vertical_collection_inline,
+                    collection: [['<p class="icons"><i class="fas fa-tv"></i><span style="font-size: 10px">TV</span></p>'.html_safe, false],['<p class="icons"><i class="fas fa-book"></i><span style="font-size: 10px">book</span></p>'.html_safe, true]],
+                    label: ""%>
+        <%= f.input :vegetable,
+                    as: :radio_buttons,
+                    wrapper: :vertical_collection_inline,
+                    collection: [['<p class="icons"><i class="fas fa-drumstick-bite"></i><span style="font-size: 10px">meat</span></p>'.html_safe, false],['<p class="icons"><i class="fas fa-leaf"></i><span style="font-size: 10px">vegetables</span></p>'.html_safe, true]],
+                    label: ""%>
+        <%= f.input :bicycle,
+                    as: :radio_buttons,
+                    wrapper: :vertical_collection_inline,
+                    collection: [['<p class="icons"><i class="fas fa-fighter-jet"></i><span style="font-size: 10px">fighter-jet</span></p>'.html_safe, false],['<p class="icons"><i class="fas fa-bicycle"></i><span style="font-size: 10px">bicycle</span></p>'.html_safe, true]],
+                    label: ""%>
+        <%= f.input :pirate,
+                    as: :radio_buttons,
+                    wrapper: :vertical_collection_inline,
+                    collection: [['<p class="icons"><i class="fas fa-user-ninja"></i><span style="font-size: 10px">ninja</span></p>'.html_safe, false],['<p class="icons"><i class="fas fa-skull-crossbones"></i><span style="font-size: 10px">pirate</span></p>'.html_safe, true]],
+                    label: ""%>
+      </div>
+      <div class="description-sign-up">
+        <%= f.input :description,
+                    label: false,
+                    as: :text,
+                    placeholder: 'Pop a new cool quote'%>
+      </div>
+      <%= f.input :age,
+                  collection: 16..70,
+                  prompt: "What's your age?",
+                  label: false%>
+
+      <%= f.input :email, required: true%>
+
+      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+        <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
+      <% end %>
+
+      <h6 style="font-size: 20px; margin-top: 60px">Change your password</h6>
+      <%= f.input :password,
+                  hint: "leave it blank if you don't want to change it",
+                  required: false,
+                  input_html: { autocomplete: "new-password" },
+                  label_html: { class: 'simple_form_label' } %>
+      <%= f.input :password_confirmation,
+                  required: false,
+                  input_html: { autocomplete: "new-password" },
+                  label_html: { class: 'simple_form_label' } %>
+      <%= f.input :current_password,
+                  hint: "we need your current password to confirm your changes",
+                  required: true,
+                  input_html: { autocomplete: "current-password" },
+                  label_html: { class: 'simple_form_label' } %>
+    </div>
+    <div class="center">
+      <div class="form-actions gorilla-btn update-profile">
+        <%= f.button :submit, "Update", class: "update-profile" %>
+      </div>
+    </div>
+    <%= link_to "Back", :back %>
+  <% end %>
+
+  <p style="margin-top: 40px">Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+
+</div>

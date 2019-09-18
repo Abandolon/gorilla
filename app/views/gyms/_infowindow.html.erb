@@ -1,0 +1,13 @@
+
+
+
+
+<%= link_to styles_path(gym: gym.id) do %>
+<%= cl_image_tag(gym.photo, crop: :thumb, gravity: :face, class: "avatar-large") %>
+<div class="gym_address">
+  <%= gym.name %>
+</div>
+<div class="gym_address">
+  <%= gym.address.match('\A\w+\s\w+') %>
+</div>
+<% end %>

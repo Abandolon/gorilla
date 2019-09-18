@@ -1,0 +1,81 @@
+.card-product {
+  overflow: hidden;
+  height: 120px;
+  border: 3px solid #30db8b;
+  border-radius: 5px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  margin: 25px 0;
+  background-color: rgba(255, 255, 255, 0.4);
+  color: white;
+}
+
+.card-product img {
+  height: 80%;
+  width: auto;
+  object-fit: cover;
+}
+
+.card-product h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-product p {
+  font-size: 12px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 8px;
+}
+
+.booking-img{
+  height: 60px !important;
+  width: auto !important;
+  opacity: 100;
+}
+
+.booking-vet-style{
+  width: 50%;
+/*  display: flex;*/
+  height: 100%;
+}
+
+.vet-style-row{
+  margin: 5px !important;
+}
+.Cancel-link {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  /*  border: solid 1px #E71D36;*/
+  border-radius: 4px;
+  height: 40px;
+  width: 80px;
+  font-size: 15px;
+  background: #e2e2e2 !important;
+  p {
+    color: black;
+    padding: 10px !important;
+    transform: scale(1.2);
+  }
+}
+
+.Chat-link {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  /*  border: solid 1px #E71D36;*/
+  border-radius: 4px;
+  height: 40px;
+  width: 80px;
+  background: #30db8b !important;
+  p {
+    font-size: 20px;
+    color: white;
+    padding: 10px !important;
+    transform: scale(1.2);
+  }
+}

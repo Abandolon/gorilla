@@ -1,0 +1,26 @@
+<!-- <div class="container">
+  <div class="center-page">
+    <div class="text-home-page">
+      <h1>GO!Rilla</h1>
+      <p>Lorem ipsum dolor sit amet</p>
+    </div>
+
+      <#%= link_to gyms_path do %>
+        <p class="gorilla-btn">Let's GO!</p>
+      <#% end %>
+  </div>
+</div>
+
+
+<%#= image_tag "gorilla.png", height: 90 %>
+ -->
+<div class="container fill-screen">
+  <div>
+    <div class="center-page">
+        <%= link_to gyms_path do %>
+          <%= image_tag "gorilla-white.png", height: 160, id:"home-img" %>
+        <% end %>
+    </div>
+    <p id="smash-it">Smash it!</p>
+  </div>
+</div>

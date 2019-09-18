@@ -1,0 +1,135 @@
+<div class="container devise">
+
+  <h2 class="header-sign-up">Sign up</h2>
+
+  <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= f.error_notification %>
+
+  <%= f.input :name,
+  required: true,
+  autofocus: true,
+  input_html: { autocomplete: "name" },
+  label: false,
+  placeholder: 'Name'%>
+  <%= f.input :email,
+  required: true,
+  input_html: { autocomplete: "email" },
+  label: false,
+  placeholder: 'Email'%>
+  <%= f.input :veteran,
+  as: :radio_buttons,
+  wrapper: :vertical_collection_inline,
+  collection: [['find a buddy', false],['be a buddy', true,]],
+  label: "" %>
+
+  <div style="margin: 20px 20px; display: none" class="additional-veteran-info">
+
+    <h6 style="font-size: 20px">Your gym</h6>
+    <%= f.input :gym_id,
+    collection: Gym.all,
+    required: true,
+    label: false,
+    prompt: "Choose your gym",
+    input_html: { class: "dropdown-gym" } %>
+
+    <h6 style="font-size: 20px">Your styles</h6>
+
+    <!-- style from actual starter journey -->
+    <div class="row justify-content-around">
+     <% Style.all.each do |style| %>
+     <label class="style-label style-checkbox col-6 col-offset-2">
+      <div>
+        <%= cl_image_tag(style.photo) %>
+        <p><%= style.name %></p>
+      </div>
+      <%= check_box_tag('styles[]', style.id, checked = false, hidden: true, class:"check-me") %>
+    </label>
+    <% end %>
+  </div>
+</div>
+
+<div class="photo-upload">
+  <h6 style="font-size: 20px">Upload a photo</h6>
+  <%= f.input :photo,
+  as: :file,
+  label: false,
+  required: true%>
+  <%= f.input :photo_cache, as: :hidden %>
+</div>
+<%= f.input :gender,
+as: :radio_buttons,
+wrapper: :vertical_collection_inline,
+collection: [['<i class="fas fa-venus"></i>'.html_safe, 'female'],['<i class="fas fa-mars"></i>'.html_safe, 'male']],
+label: ""%>
+<div class="description-answers">
+  <h6 style="font-size: 20px">Share some interests</h6>
+  <h6 style="font-size: 15px; margin-bottom: 0px">Vacation</h6>
+  <%= f.input :beach,
+  as: :radio_buttons,
+  wrapper: :vertical_collection_inline,
+  collection: [['<p class="icons"><i class="fas fa-mountain"></i><span style="font-size: 10px">mountains</span></p>'.html_safe, false],['<p class="icons"><i class="fas fa-umbrella-beach"></i><span style="font-size: 10px">beach</span></p>'.html_safe, true]],
+  label: ""%>
+  <h6 style="font-size: 15px; margin-bottom: 0px">Season</h6>
+  <%= f.input :summer,
+  as: :radio_buttons,
+  wrapper: :vertical_collection_inline,
+  collection: [['<p class="icons"><i class="fas fa-snowflake"></i><span style="font-size: 10px">winter</span></p>'.html_safe, false],['<p class="icons"><i class="fas fa-sun"></i><span style="font-size: 10px">summer</span></p>'.html_safe, true]],
+  label: ""%>
+  <h6 style="font-size: 15px; margin-bottom: 0px">Entertainment</h6>
+  <%= f.input :book,
+  as: :radio_buttons,
+  wrapper: :vertical_collection_inline,
+  collection: [['<p class="icons"><i class="fas fa-tv"></i><span style="font-size: 10px">TV</span></p>'.html_safe, false],['<p class="icons"><i class="fas fa-book"></i><span style="font-size: 10px">book</span></p>'.html_safe, true]],
+  label: ""%>
+  <h6 style="font-size: 15px; margin-bottom: 0px">Food</h6>
+  <%= f.input :vegetable,
+  as: :radio_buttons,
+  wrapper: :vertical_collection_inline,
+  collection: [['<p class="icons"><i class="fas fa-drumstick-bite"></i><span style="font-size: 10px">meat</span></p>'.html_safe, false],['<p class="icons"><i class="fas fa-leaf"></i><span style="font-size: 10px">vegetables</span></p>'.html_safe, true]],
+  label: ""%>
+  <h6 style="font-size: 15px; margin-bottom: 0px">Transportation</h6>
+  <%= f.input :bicycle,
+  as: :radio_buttons,
+  wrapper: :vertical_collection_inline,
+  collection: [['<p class="icons"><i class="fas fa-fighter-jet"></i><span style="font-size: 10px">fighter-jet</span></p>'.html_safe, false],['<p class="icons"><i class="fas fa-bicycle"></i><span style="font-size: 10px">bicycle</span></p>'.html_safe, true]],
+  label: ""%>
+  <h6 style="font-size: 15px; margin-bottom: 0px">Character</h6>
+  <%= f.input :pirate,
+  as: :radio_buttons,
+  wrapper: :vertical_collection_inline,
+  collection: [['<p class="icons"><i class="fas fa-user-ninja"></i><span style="font-size: 10px">ninja</span></p>'.html_safe, false],['<p class="icons"><i class="fas fa-skull-crossbones"></i><span style="font-size: 10px">pirate</span></p>'.html_safe, true]],
+  label: ""%>
+</div>
+<div class="description-sign-up">
+  <%= f.input :description,
+  label: false,
+  as: :text,
+  placeholder: 'Pop a cool quote'%>
+</div>
+<%= f.input :age,
+collection: 16..70,
+prompt: "What's your age?",
+label: false%>
+<div class="password-sign-up">
+  <%= f.input :password,
+  required: true,
+  hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+  label: false,
+  placeholder: 'Password',
+  input_html: { autocomplete: "new-password" } %>
+  <%= f.input :password_confirmation,
+  required: true,
+  label: false,
+  placeholder: 'Confirm Password',
+  input_html: { autocomplete: "new-password" } %>
+  <h6 style="font-size: 20px">Add some more photos</h6>
+  <%= f.input :photos, as: :file, label: false, input_html: {multiple: true} %>
+</div>
+<div class="form-action">
+  <%= f.button :submit, "Sign up", class: "btn-sign-up" %>
+</div>
+<% end %>
+
+<%= render "devise/shared/links" %>
+
+</div>

@@ -1,0 +1,24 @@
+<% if !current_user.veteran %>
+
+<!-- STARTER HTML -->
+
+  <div class="container margin-top-container">
+    <h3 class="header-styles">Your Bookings</h3>
+    <%= render "form_own_bookings" %>
+  </div>
+
+<% else %>
+
+<!-- VETERAN HTML -->
+
+  <div class="container margin-top-container">
+
+    <div class="containers-bookings">
+    <h4 class="margin-top-name">Users asking for you</h4>
+    <%= render "form_current_requests" %>
+    </div>
+    <h4 class="margin-top-name">Your own bookings</h4>
+    <%= render "form_own_bookings" %>
+  </div>
+
+<% end %>

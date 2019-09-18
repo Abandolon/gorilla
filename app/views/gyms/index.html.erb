@@ -1,0 +1,14 @@
+<div class="container index-gym">
+
+<h3 class="header-styles">Choose Your Gym</h3>
+
+<div
+  id="map"
+  style="width: 100%;
+    height: 70vh;
+    border-radius: 3px;
+    display: inherit;"
+  data-markers="<%= @markers.to_json %>"
+  data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+</div>
+

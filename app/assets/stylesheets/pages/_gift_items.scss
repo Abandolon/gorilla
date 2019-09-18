@@ -1,0 +1,31 @@
+.gift-table {
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-top: 20px;
+  margin-bottom: 35px;
+  width: auto;
+  img {
+    height: 200px;
+    border-radius: 5px;
+    padding: 0;
+    margin: 0;
+  }
+}
+
+.gift-item {
+  background-color: #b7b7b7;
+  padding: 0px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.submit-button {
+  font-size: 30px;
+}
+
+.book {
+  margin-bottom: 50px;
+  background-color: #b7b7b7;
+}

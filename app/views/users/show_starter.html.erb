@@ -1,0 +1,72 @@
+<div class="container margin-top-container">
+
+  <%= link_to 'Back to Bookings', :back %>
+
+  <div class="container">
+    <%= cl_image_tag(@user.photo, crop: :thumb, gravity: :face, class:"avatar") %>
+    <h3 class="margin-top-name"><%= @user.name.capitalize %></h3>
+    <p class="margin-top-name"><%= @user.age %> y/o</p>
+  </div>
+
+  <div class="container">
+    <p id="left-align-desc" class="margin-top-name"><%= @user.description %></p>
+  </div>
+  <div class="interests-icon-list">
+    <p id="interests-current-user" class="profile-headers">Interests</p>
+    <div class="icon-list">
+      <% if @user.beach %>
+      <i class="fas fa-umbrella-beach"></i>
+      <% else %>
+      <i class="fas fa-mountain"></i>
+      <% end %>
+
+      <% if @user.summer %>
+      <i class="fas fa-sun"></i>
+      <% else %>
+      <i class="far fa-snowflake"></i>
+      <% end %>
+
+      <% if @user.book %>
+      <i class="fas fa-book"></i>
+      <% else %>
+      <i class="fas fa-tv"></i>
+      <% end %>
+
+      <% if @user.vegetable %>
+      <i class="fas fa-leaf"></i>
+      <% else %>
+      <i class="fas fa-drumstick-bite"></i>
+      <% end %>
+
+      <% if @user.bicycle %>
+      <i class="fas fa-bicycle"></i>
+      <% else %>
+      <i class="fas fa-fighter-jet"></i>
+      <% end %>
+
+      <% if @user.pirate %>
+      <i class="fas fa-skull-crossbones"></i>
+      <% else %>
+      <i class="fas fa-user-ninja"></i>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="card-answer">
+    <%= link_to "Accept", booking_path(@booking_id, value: "accepted"), method: :patch, class: "accept-btn" %>
+    <%= link_to "Decline", booking_path(@booking_id, value: "declined"), method: :patch, class: "decline-btn" %>
+  </div>
+
+  <div id="photo-gallery-margin" class="container photos-margin">
+    <p class="profile-headers">Photos</p>
+    <div class="row">
+      <% @user.photos.each do |user_photo|%>
+      <div class="col-4 col-sm-3 col-md-3">
+        <div class="photo-placeholder">
+          <%= cl_image_tag(user_photo.photo, crop: :thumb, gravity: :face, class:"photo-placeholder") %>
+        </div>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>

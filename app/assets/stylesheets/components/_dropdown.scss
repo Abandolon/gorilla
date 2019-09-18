@@ -1,0 +1,30 @@
+.dropdown-gym {
+  background-color: transparent;
+  color: white;
+  border-radius: 10px;
+  width: 86vw;
+  margin: 10px 0px 25px 0px;
+  border: 2px solid;
+  height: 8vh;
+  font-size: 20px;
+  text-align-last: center;
+  padding-left: 10px;
+}
+
+.dropdown-submit {
+  background-color: rgba(0,0,0,0.0);
+  width: 30vw;
+  height: 12vw;
+  font-size: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 25px white;
+  margin: 20px !important;
+}
+
+.form-dropdown {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}

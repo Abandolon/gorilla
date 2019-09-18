@@ -1,0 +1,164 @@
+
+
+.avatar-vet{
+  margin-top: 50px;
+  margin-bottom: 20px;
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+}
+
+.top-name {
+  margin-top: 20px;
+}
+
+.card {
+  flex-direction: column;
+  color: white;
+  background-color: transparent !important;
+  margin-top: 20px;
+}
+
+.space-around-styles {
+  justify-content: space-around;
+  margin-bottom: 50px !important;
+}
+
+.tabs {
+  width: 192px;
+}
+
+
+.offer-time {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 50%;
+    padding: 10px;
+    height: 50px;
+    width: 50px;
+}
+
+
+.nav {
+  border: solid 1px #30db8b;
+  background: #e5fff3;
+  border-radius: 5px;
+  li {
+    width: 33.3%;
+    a {
+      color: black;
+    }
+  }
+  .nav-link {
+    opacity: 0.5;
+    &.active {
+      border-bottom: 5px solid #30db8b;
+      border-radius: 5px;
+      background: #30db8b;
+      border-top: none;
+      border-right: none;
+      border-left: none;
+
+      opacity: 1;
+      a {
+      color: black;
+    }
+    }
+  }
+}
+
+.profile-headers {
+  opacity: 0.9;
+  font-weight: lighter;
+  font-size: 18px;
+  text-align: left;
+  margin: 0;
+  position: absolute;
+  left: 44px;
+  color: #30db8b;
+}
+
+.send-request-btn {
+  margin-top: -20px !important;
+}
+
+#photo-gallery-margin {
+  margin-bottom: 75px;
+  margin-top: 55px;
+  padding-right: 25px;
+}
+
+#interests {
+     top: -40px;
+    left: 26px;
+}
+
+#desc-vet {
+  top: 347px;
+}
+
+.justify-content-center {
+  justify-content: space-around !important;
+}
+
+.description {
+  padding-top: 20px;
+}
+
+.book {
+  color: white;
+  border-color: white;
+  border-radius: 10px;
+  padding: 5px;
+  margin: 20px;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.margin-top-container {
+  margin-top: 30px;
+  text-align: center;
+}
+.calendar {
+  padding: 20px;
+
+}
+
+.calendar h2 {
+  font-size: 30px;
+
+}
+
+.booking_date label {
+  color: white;
+  font-size: 2px;
+  opacity: 0;
+}
+
+.placeholder {
+  height: 95px;
+  border-radius: 10px;
+  margin-top: 20px;
+}
+
+.booking_today label {
+  border-bottom-color: black;
+}
+
+span.flatpickr-day.today:not(.selected), span.flatpickr-day.prevMonthDay.today:not(.selected), span.flatpickr-day.nextMonthDay.today:not(.selected) {
+  border-bottom-color: black !important;
+
+}
+
+span.flatpickr-day.today:not(.selected):hover {
+  border-color: black !important;
+
+}
+.flatpickr-day.today:hover,{
+  background: black !important;
+}
+.flatpickr-day.selected {
+  border-color: grey !important;
+  background: grey !important;
+}

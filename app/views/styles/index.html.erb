@@ -1,0 +1,27 @@
+  <div class="fill-screen">
+  <div class="container">
+
+    <h3 class="header-styles">Choose your styles</h3>
+    <%= form_tag(veterans_path(gym: params[:gym]), method: :get) do %>
+    <div class="row justify-content-around">
+      <% @styles.each do |style| %>
+
+        <label class="style-label style-checkbox col-6 col-offset-2">
+          <div>
+            <%= cl_image_tag(style.photo) %>
+            <p><%= style.name %></p>
+          </div>
+          <%= check_box_tag('styles[]', style.id, checked = false, hidden: true, class:"check-me") %>
+        </label>
+
+      <% end %>
+    </div>
+    <div class="row">
+      <%= hidden_field_tag("gym", params[:gym]) %>
+    </div>
+    <div class="row btn-find-buds-box">
+      <%= submit_tag(value = "Find Your Buds", class: "gorilla-btn style-submit btn-find-buds") %>
+    </div>
+    <% end %>
+  </div>
+</div>

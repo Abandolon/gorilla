@@ -1,0 +1,120 @@
+.margin-top-container {
+  margin-top: 40px;
+}
+
+a {
+  color: white;
+}
+
+a:active {
+  color: white;
+}
+
+.edit-profile {
+  right: 15px;
+  position: absolute;
+  top: 15px;
+  color: #30db8b;
+  font-size: 25px;
+  i {
+    height: 35px;
+    width: 35px;
+  }
+}
+
+.icon-list {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  color: white !important;
+  margin: 30px 15px;
+  font-size: 30px;
+  margin-bottom: -18px !important;
+}
+
+
+.sign-out {
+  left: 15px;
+  position: absolute;
+  top: 15px;
+  color: #30db8b;
+  font-size: 25px;
+  i {
+    height: 35px;
+    width: 35px;
+  }
+}
+
+#booking-form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 40px !important;
+  padding-top: 15px;
+  border-radius: 5px;
+}
+
+.margin-top-name {
+  margin-top: 20px;
+}
+
+#style-names {
+  color: white;
+  font-size: smaller;
+}
+
+#left-align-desc {
+  text-align: left;
+  margin-top: 50px;
+  margin-left: 20px;
+  margin-bottom: 75px;
+}
+
+.go-back {
+  left: 20px;
+  position: absolute;
+  top: 20px;
+    color: #30db8b;
+    font-size: 20px;
+
+}
+
+.photo-placeholder {
+  height: 95px;
+  width: 95px;
+  border-radius: 10px;
+  margin-top: 20px;
+  object-fit: cover;
+}
+
+.interests-icon-list {
+  position: relative;
+}
+
+#style-images {
+  height: 65px !important;
+  width: 65px !important;
+}
+
+.video-placeholder {
+  background: grey;
+  height: 180px;
+  width: 100%;
+  border-radius: 10px;
+  margin-top: 20px;
+}
+
+.row {
+  margin: 0px;
+}
+
+.user-desc {
+  text-align: left;
+  margin-left: 35px;
+  margin-top: 45px;
+}
+
+#interests-current-user {
+  top: -40px;
+  left: 27px;
+}

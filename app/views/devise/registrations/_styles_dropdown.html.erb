@@ -1,0 +1,14 @@
+<!-- style from actual starter journey -->
+  <div class="row justify-content-around">
+       <% Style.all.each do |style| %>
+       <label class="style-label style-checkbox col-6 col-offset-2">
+        <div>
+          <%= cl_image_tag(style.photo) %>
+          <p><%= style.name %></p>
+        </div>
+        <%= check_box_tag('styles[]', style.id, checked = false, hidden: true, class:"check-me") %>
+      </label>
+      <% end %>
+    </div>
+<%# end %>
+<!-- end -->
